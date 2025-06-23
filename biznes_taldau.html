@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Бизнес-талдау - Тумар-консалтинг</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8fafc;
+    }
+    .kaspi-blue {
+      color: #00AEEF;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 174, 239, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow p-4 flex items-center justify-between">
+    <a href="index.html" class="text-blue-600 font-bold text-lg"><i class="fas fa-arrow-left mr-2"></i>Басты бетке</a>
+    <h1 class="text-xl font-semibold text-gray-700">Бизнес-талдау</h1>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- 1: Стартаптарға арналған бизнес курс -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="Бизнес курс" 
+               class="w-full h-40 object-cover">
+          <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+            -20%
+          </div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1 text-sm">Стартаптарға арналған бизнес курс</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-gray-500 text-xs ml-1">(31)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="font-bold kaspi-blue">20 000 ₸</span>
+              <span class="text-gray-500 text-xs line-through ml-1">25 000 ₸</span>
+            </div>
+            <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+              <i class="fas fa-cart-plus text-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Қаржылық талдау нұсқаулығы -->
+      <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="Қаржылық талдау" 
+               class="w-full h-40 object-cover">
+          <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+            -10%
+          </div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-medium text-gray-800 mb-1 text-sm">Қаржылық талдау нұсқаулығы</h3>
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="text-gray-500 text-xs ml-1">(45)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="font-bold kaspi-blue">20 250 ₸</span>
+              <span class="text-gray-500 text-xs line-through ml-1">22 500 ₸</span>
+            </div>
+            <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+              <i class="fas fa-cart-plus text-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

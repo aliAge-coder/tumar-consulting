@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Халықаралық - Тумар-консалтинг</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0fdf4;
+    }
+    .kaspi-blue {
+      color: #16a34a;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(22, 163, 74, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-green-100 shadow p-4 flex items-center justify-between">
+    <a href="index.html" class="text-green-700 font-bold text-lg"><i class="fas fa-arrow-left mr-2"></i>Басты бетке</a>
+    <h1 class="text-xl font-semibold text-green-800">Халықаралық</h1>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <div class="product-card bg-white rounded-lg p-4 shadow-sm">
+        <img src="https://images.unsplash.com/photo-1606857521015-d38b021f988c?auto=format&fit=crop&w=800&q=80" alt="Global markets" class="w-full h-40 object-cover rounded">
+        <h3 class="mt-3 font-semibold text-lg text-green-800">Халықаралық нарыққа шығу</h3>
+        <p class="text-sm text-gray-600 mb-2">Экспорт пен серіктестікке дайындық</p>
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-green-700">31 000 ₸</span>
+          <i class="fas fa-cart-plus text-green-600"></i>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-lg p-4 shadow-sm">
+        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Cultural consulting" class="w-full h-40 object-cover rounded">
+        <h3 class="mt-3 font-semibold text-lg text-green-800">Мәдениетаралық консалтинг</h3>
+        <p class="text-sm text-gray-600 mb-2">Шетелдік серіктестермен жұмыс негіздері</p>
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-green-700">20 000 ₸</span>
+          <i class="fas fa-cart-plus text-green-600"></i>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тумар-консалтинг kz - Интернет-дүкен</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .kaspi-blue {
+            color: #00AEEF;
+        }
+        
+        .kaspi-bg {
+            background-color: #00AEEF;
+        }
+        
+        .kaspi-hover:hover {
+            background-color: #0095D5;
+        }
+        
+        .header-shadow {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 174, 239, 0.15);
+        }
+        
+        .payment-method:hover {
+            border-color: #00AEEF;
+            box-shadow: 0 5px 15px rgba(0, 174, 239, 0.1);
+        }
+        
+        .delivery-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 12px;
+            height: 100%;
+            width: 2px;
+            background-color: #e0e0e0;
+        }
+        
+        .search-input:focus {
+            border-color: #00AEEF;
+            box-shadow: 0 0 0 2px rgba(0, 174, 239, 0.2);
+        }
+        
+        .tab-active {
+            border-bottom: 2px solid #00AEEF;
+            color: #00AEEF;
+            font-weight: 500;
+        }
+        
+        .chatbot-btn {
+            box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .category-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Навигационная панель -->
+    <header class="bg-white header-shadow fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-3">
+                <!-- Логотип и поиск -->
+                <div class="flex items-center space-x-6 w-full md:w-auto">
+                    <a href="#" class="flex items-center">
+                        <div class="bg-white rounded-lg p-1 mr-2">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 2L4 9L16 16L28 9L16 2Z" fill="#00AEEF"/>
+                                <path d="M4 16L16 23L28 16" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 23L16 30L28 23" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold kaspi-blue hidden sm:block">Тумар-консалтинг</span>
+                    </a>
+                    
+                    <div class="hidden md:flex flex-1 max-w-xl mx-4">
+                        <div class="relative w-full">
+                            <input type="text" placeholder="Іздеу..." class="search-input w-full py-2 px-4 border border-gray-300 rounded-l-lg focus:outline-none">
+                            <button class="kaspi-bg text-white px-4 py-2 rounded-r-lg hover:kaspi-hover">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Навигация и действия -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hidden md:flex flex-col items-center text-gray-700 hover:kaspi-blue px-2">
+                        <i class="far fa-heart text-xl"></i>
+                        <span class="text-xs mt-1">Таңдаулылар</span>
+                    </a>
+                    <a href="#" class="hidden md:flex flex-col items-center text-gray-700 hover:kaspi-blue px-2">
+                        <i class="far fa-compass text-xl"></i>
+                        <span class="text-xs mt-1">Қызметтер</span>
+                    </a>
+                    <a href="#" class="hidden md:flex flex-col items-center text-gray-700 hover:kaspi-blue px-2">
+                        <i class="far fa-bell text-xl"></i>
+                        <span class="text-xs mt-1">Хабарлама</span>
+                    </a>
+                    
+                    <div class="relative">
+                        <button class="flex flex-col items-center text-gray-700 hover:kaspi-blue px-2">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="text-xs mt-1">Себет</span>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="hidden md:block ml-2">
+                        <button class="kaspi-bg hover:kaspi-hover text-white px-4 py-1 rounded-lg font-medium flex items-center">
+                            <i class="fas fa-user-circle mr-2"></i>Кіру
+                        </button>
+                    </div>
+                    
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Мобильный поиск -->
+            <div class="md:hidden pb-3">
+                <div class="relative">
+                    <input type="text" placeholder="Іздеу..." class="search-input w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none">
+                    <button class="absolute right-3 top-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="mt-20">
+        <!-- Категории -->
+        <section class="bg-white py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex overflow-x-auto space-x-6 pb-2 scrollbar-hide">
+                    <a href="kurslar.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-blue-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-book-open text-blue-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">Курстар</span>
+                    </a>
+                    <a href="biznes_taldau.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-green-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-chart-line text-green-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">Бизнес-талдау</span>
+                    </a>
+                    <a href="hr.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-purple-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-users text-purple-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">HR консалтинг</span>
+                    </a>
+                    <a href="marketing.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-yellow-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-bullhorn text-yellow-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">Маркетинг</span>
+                    </a>
+                    <a href="karzhy.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-red-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-file-invoice-dollar text-red-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">Қаржы</span>
+                    </a>
+                    <a href="it.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-indigo-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-laptop-code text-indigo-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">IT консалтинг</span>
+                    </a>
+                    <a href="halyqaralyq.html" class="category-card flex flex-col items-center min-w-fit">
+                        <div class="bg-pink-50 p-3 rounded-full mb-1">
+                            <i class="fas fa-globe text-pink-600 text-xl category-icon"></i>
+                        </div>
+                        <span class="text-xs text-center">Халықаралық</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Баннер -->
+        <section class="py-4 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Консалтинг қызметтері" 
+                         class="w-full h-48 md:h-64 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные товары -->
+        <section class="py-6 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Таңдаулы қызметтер</h2>
+                    <a href="#" class="text-sm kaspi-blue font-medium">Барлығын көрсету <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    <!-- Товар 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Бизнес курс" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                ЖАҢА
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">Бизнес жоспарлау бойынша толық курс</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(24)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold kaspi-blue">25 000 ₸</span>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 2 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Маркетинг стратегиясы" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                ТОП
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">Дижитал маркетинг стратегиясын жасау</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(37)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold kaspi-blue">18 000 ₸</span>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 3 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Қаржылық талдау" 
+                             class="w-full h-40 object-cover">
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">Қаржылық талдау және есеп беру</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(42)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold kaspi-blue">22 500 ₸</span>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 4 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="HR басқару" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                ЖЕДЕЛ
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">HR басқарудың заманауи әдістері</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(19)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold kaspi-blue">30 000 ₸</span>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 5 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300 hidden md:block">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="IT консалтинг" 
+                             class="w-full h-40 object-cover">
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">IT компанияларға арналған консалтинг</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(15)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold kaspi-blue">27 000 ₸</span>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Баннер 2 -->
+        <section class="py-4 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Арнайы ұсыныс" 
+                         class="w-full h-48 md:h-64 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Категории товаров -->
+        <section class="py-6 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Категориялар</h2>
+                    <a href="#" class="text-sm kaspi-blue font-medium">Барлығын көрсету <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Категория 1 -->
+                    <a href="#" class="bg-white rounded-lg shadow-sm overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Бизнес курстары" 
+                                 class="w-full h-32 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+                            <h3 class="absolute bottom-2 left-2 text-white font-medium">Бизнес курстары</h3>
+                        </div>
+                    </a>
+                    
+                    <!-- Категория 2 -->
+                    <a href="#" class="bg-white rounded-lg shadow-sm overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Маркетинг" 
+                                 class="w-full h-32 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+                            <h3 class="absolute bottom-2 left-2 text-white font-medium">Маркетинг</h3>
+                        </div>
+                    </a>
+                    
+                    <!-- Категория 3 -->
+                    <a href="#" class="bg-white rounded-lg shadow-sm overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Қаржы және есеп" 
+                                 class="w-full h-32 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+                            <h3 class="absolute bottom-2 left-2 text-white font-medium">Қаржы және есеп</h3>
+                        </div>
+                    </a>
+                    
+                    <!-- Категория 4 -->
+                    <a href="#" class="bg-white rounded-lg shadow-sm overflow-hidden group hidden md:block">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="HR консалтинг" 
+                                 class="w-full h-32 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+                            <h3 class="absolute bottom-2 left-2 text-white font-medium">HR консалтинг</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Товары со скидкой -->
+        <section class="py-6 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Арнайы ұсыныстар</h2>
+                    <a href="#" class="text-sm kaspi-blue font-medium">Барлығын көрсету <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    <!-- Товар 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Бизнес курс" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                -20%
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">Стартаптарға арналған бизнес курс</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(31)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold kaspi-blue">20 000 ₸</span>
+                                    <span class="text-gray-500 text-xs line-through ml-1">25 000 ₸</span>
+                                </div>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 2 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Маркетинг стратегиясы" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                -15%
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">SMM стратегиясын жасау курсы</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(28)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold kaspi-blue">15 300 ₸</span>
+                                    <span class="text-gray-500 text-xs line-through ml-1">18 000 ₸</span>
+                                </div>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 3 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Қаржылық талдау" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                -10%
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">Қаржылық талдау нұсқаулығы</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(45)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold kaspi-blue">20 250 ₸</span>
+                                    <span class="text-gray-500 text-xs line-through ml-1">22 500 ₸</span>
+                                </div>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 4 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="HR басқару" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                -25%
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">HR басқару әдістері</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(22)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold kaspi-blue">22 500 ₸</span>
+                                    <span class="text-gray-500 text-xs line-through ml-1">30 000 ₸</span>
+                                </div>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 5 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300 hidden md:block">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                                 alt="IT консалтинг" 
+                                 class="w-full h-40 object-cover">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">
+                                -30%
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-medium text-gray-800 mb-1 text-sm line-clamp-2">IT компанияларға консалтинг</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-1">(18)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold kaspi-blue">18 900 ₸</span>
+                                    <span class="text-gray-500 text-xs line-through ml-1">27 000 ₸</span>
+                                </div>
+                                <button class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-full">
+                                    <i class="fas fa-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Доставка и оплата -->
+        <section class="py-8 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Жеткізу және төлем</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Доставка -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-truck text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">Жеткізу</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Қазақстан бойынша жеткізу - 1 500 ₸</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Астана, Алматы қалаларында тегін жеткізу</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>1-3 жұмыс күні ішінде жеткізіледі</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Электрондық нұсқасы бірден жіберіледі</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Оплата -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-credit-card text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">Төлем</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="payment-method border border-gray-200 rounded-lg p-3 flex items-center">
+                                <img src="https://kaspi.kz/img/ApplePay.svg" alt="Kaspi QR" class="h-6 mr-2">
+                                <span class="text-sm">Kaspi QR</span>
+                            </div>
+                            <div class="payment-method border border-gray-200 rounded-lg p-3 flex items-center">
+                                <img src="https://kaspi.kz/img/Visa.svg" alt="Visa" class="h-6 mr-2">
+                                <span class="text-sm">Visa/Mastercard</span>
+                            </div>
+                            <div class="payment-method border border-gray-200 rounded-lg p-3 flex items-center">
+                                <img src="https://kaspi.kz/img/HalykBank.svg" alt="Halyk Bank" class="h-6 mr-2">
+                                <span class="text-sm">Halyk Bank</span>
+                            </div>
+                            <div class="payment-method border border-gray-200 rounded-lg p-3 flex items-center">
+                                <i class="fas fa-money-bill-wave text-gray-600 mr-2"></i>
+                                <span class="text-sm">Қолма-қол ақша</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Гарантия -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">Кепілдік</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Барлық материалдар сапаға кепілдікпен</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>14 күн ішінде қайтару құқығы</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Курстарға қолдау қызметі</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Жеке консультация мүмкіндігі</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-gray-800 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- О компании -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Тумар-консалтинг</h3>
+                    <p class="text-gray-400 mb-4">Біз сіздің бизнесіңіздің тиімділігін арттыруға көмектесеміз</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Меню -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ақпарат</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Біз туралы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Блог</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Кері байланыс</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Вакансиялар</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Серіктестер</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Помощь -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Көмек</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Жеткізу шарттары</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Төлем әдістері</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Жиі қойылатын сұрақтар</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Құпиялылық саясаты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Пайдалану шарттары</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Контакты -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Байланыс</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Шымкент қ., Алтынқорған көш. 193</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+7 707 532 6951</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@tumar-consulting.kz</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Дүйсенбі-Жұма, 09:00-18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Тумар-консалтинг kz. Барлық құқықтар қорғалған.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Құпиялылық саясаты</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Пайдалану шарттары</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Telegram ботқа сілтеме -->
+    <a href="https://t.me/TumarConsultingBot" target="_blank" class="fixed bottom-6 right-6 bg-blue-500 text-white px-5 py-3 rounded-full shadow-lg hover:bg-blue-600 z-40 flex items-center space-x-2">
+        <i class="fab fa-telegram-plane text-xl"></i>
+        <span class="hidden sm:inline">Telegram бот</span>
+    </a>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden">
+        <div class="flex justify-between items-center p-4 border-b">
+            <a href="#" class="flex items-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L4 9L16 16L28 9L16 2Z" fill="#00AEEF"/>
+                    <path d="M4 16L16 23L28 16" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 23L16 30L28 23" stroke="#00AEEF" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="text-xl font-bold kaspi-blue ml-2">Тумар-консалтинг</span>
+            </a>
+            <button id="close-mobile-menu" class="text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <div class="p-4">
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" placeholder="Іздеу..." class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none">
+                    <button class="absolute right-3 top-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <ul class="space-y-4">
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Басты бет</a></li>
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Категориялар</a></li>
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Таңдаулылар</a></li>
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Қызметтер</a></li>
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Себет</a></li>
+                <li><a href="#" class="block py-2 text-gray-700 font-medium">Профиль</a></li>
+            </ul>
+            
+            <div class="mt-8">
+                <button class="w-full kaspi-bg hover:kaspi-hover text-white py-2 rounded-lg font-medium">
+                    Кіру
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Мобильное меню
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        
+        // Выбор способа оплаты
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('border-blue-500'));
+                method.classList.add('border-blue-500');
+            });
+        });
+    </script>
+</body>
+</html>
